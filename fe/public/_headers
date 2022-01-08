@@ -1,0 +1,3 @@
+/*  Access-Control-Allow-Origin: https://server-youtube-downloader.herokuapp.com/
+    Access-Control-Allow-Methods: GET, POST, PUT
+    Access-Control-Allow-Headers: Content-Type

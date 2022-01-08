@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import Videos from "./Videos";
 import axios from 'axios'
 
-const URL = 'http://localhost:3000/'
+const URL = 'https://server-youtube-downloader.herokuapp.com/'
 
 const notify = (msg, { success }) => {
     if(success) {

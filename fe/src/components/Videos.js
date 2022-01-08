@@ -1,7 +1,7 @@
 import axios from "axios";
 const FileDownload = require('js-file-download')
 
-const URL = 'http://localhost:3000'
+const URL = 'https://server-youtube-downloader.herokuapp.com'
 
 const VideoDownloader = props => {
     const { video } = props

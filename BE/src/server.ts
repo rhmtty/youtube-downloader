@@ -15,7 +15,10 @@ const app = express();
 const server = http.createServer(app);
 
 export const io = new Server(server, {
-    cors: { origin: "*" },
+    cors: {
+        origin: 'https://yotube-downloader.netlify.app',
+        methods: ['GET', 'POST']
+    },
 });
 
 new SocketInit(io);
@@ -40,10 +43,21 @@ app.use(express.static(path.join(__dirname, "views")));
 app.use(cors());
 app.use(downloadsRouter);
 
+// CORS
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,multipart/form-data,Authorization');
+    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+    if (req.method === 'OPTIONS') {
+        return res.send(204);
+    }
+    next();
+});
+
 app.get("/", (req: Request, res: Response) => {
     res.render("index");
 });
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
     console.log("Server running up 3000");
 });
