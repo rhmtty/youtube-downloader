@@ -4,7 +4,6 @@ const FileDownload = require('js-file-download')
 const URL = 'http://localhost:3000'
 
 const VideoDownloader = props => {
-    console.log(props);
     const { video } = props
     const { _id, title, thumbnail } = video
 
@@ -30,7 +29,7 @@ const VideoDownloader = props => {
 
     return (
         <div className="card" style={{ width: '18rem' }}>
-            <img src={thumbnail} alt='thumbnail' class="card-img-top" />
+            <img src={thumbnail} alt={title} class="card-img-top" />
             <div className="card-body">
                 <h6 className="card-text">{title}</h6>
                 <button id={_id} className="btn btn-success rounded" style={{ width: '100px' }} onClick={downloadVideo} title={title}>Download</button>
