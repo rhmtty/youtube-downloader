@@ -17,7 +17,7 @@ const server = http.createServer(app);
 export const io = new Server(server, {
     cors: {
         origin: 'https://yotube-downloader.netlify.app',
-        methods: ['GET', 'POST']
+        methods: ['GET', 'POST', 'DELETE']
     },
 });
 
